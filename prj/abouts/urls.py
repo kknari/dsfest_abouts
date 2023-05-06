@@ -1,8 +1,13 @@
-from django.urls import path, include
+from django.urls import path
 
 from . import views
 
+post_list = views.PostViewSet.as_view({
+    'get': 'list',
+    'post': 'create'
+})
+
 
 urlpatterns = [
-    path('abouts/', views.PostList.as_view()),
+    path('abouts/', post_list),
 ]
